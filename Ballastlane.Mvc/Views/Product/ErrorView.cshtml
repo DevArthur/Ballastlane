@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+<h1 class="text-danger">There was an error !!! </h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+<br />
+About error: @TempData["error"]
+<br />
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Product" asp-action="Index">Home</a>
+    </li>
+</ul>

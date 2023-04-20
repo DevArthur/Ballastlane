@@ -1,0 +1,21 @@
+﻿@using Ballastlane.Data.Models.Entities;
+@model Product
+@{
+    ViewData["Title"] = "Find a Product";
+}
+<h1>Find a product</h1>
+
+<div class="col-4">
+    <div class="row">
+        <div class="container">
+            <form asp-action="Product" asp-controller="Product">
+                @Html.Label("Product Id")
+                @Html.TextBoxFor(x => x.Id)
+                <input type="submit" value="Find" class="btn btn-primary" />
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
