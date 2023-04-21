@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "User created";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<h1 style="color:seagreen">User @TempData["message"] created !!! </h1>
+<br />
+<br />
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Login" asp-action="Index">Login</a>
+    </li>
+</ul>

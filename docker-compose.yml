@@ -1,0 +1,32 @@
+version: '3.4'
+
+networks:
+  demoballastlanenetwork:
+
+services:
+  ballastlane.db:  
+    container_name: demo-ballastlane-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+        - 8002:1433
+    environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=IronM@iden79
+    networks:
+        - demoballastlanenetwork  
+  ballastlane.mvc:
+    container_name: demo-ballastlane-mvc
+    image: ${DOCKER_REGISTRY-}ballastlanemvc
+    build:
+      context: .
+      dockerfile: Ballastlane.Mvc/Dockerfile
+    ports: 
+        - 8001:80
+    depends_on: 
+        - ballastlane.db
+    environment:        
+        - DB_HOST=ASUS_TUF-LDT\SQLEXPRESS        
+        - DB_NAME=BallastlaneDb
+        - DB_SA_PASSWORD=IronM@iden79
+    networks:
+        - demoballastlanenetwork 

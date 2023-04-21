@@ -9,7 +9,6 @@ namespace Ballastlane.Mvc.Controllers
     {
         private readonly IRepository<Product> _repository;
         private readonly IProductService _productService;
-        private readonly ILogger<ProductController> _logger;
 
         public ProductController(IRepository<Product> repository,
             IProductService productService)
@@ -18,6 +17,7 @@ namespace Ballastlane.Mvc.Controllers
             _productService = productService;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();

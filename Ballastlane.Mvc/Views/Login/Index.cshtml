@@ -17,20 +17,21 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group" style="width:160% !important;">
-                <label asp-for="Password" class="control-label"></label>
-                @*<input asp-for="Password" class="form-control" />*@
+                <label asp-for="Password" class="control-label"></label>                
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <p class="alert-danger" style="margin-top:revert">@TempData["loginError"]</p>
-            <br /> 
+            <p class="alert-danger" style="margin-top:revert">@TempData["loginError"]</p>            
+            <div>
+                <a asp-action="Register" asp-controller="Login">Register</a>
+            </div>
+            <br />       
             <div class="form-group">
                 <input type="submit" value="Login" class="btn btn-primary" />
             </div>
-        </form>
+        </form>        
     </div>
 </div>
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
